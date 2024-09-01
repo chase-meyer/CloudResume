@@ -1,0 +1,89 @@
+@page {
+    size: 8.5in 11in;
+    margin: 1in;
+    /* Adjust the margin as needed */
+}
+
+/* Apply the existing styles inside this container */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 12pt;
+    margin: 0.5in;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+}
+
+ul,
+p {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+
+/* Simulate a 9 x 11 inch page on screen */
+.pageContainer {
+    width: 9in;
+    height: 11in;
+    margin: auto;
+    padding: 1in;
+    border: 1px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    border-style: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    margin: 0;
+}
+
+/* row and column classes for grid layout */
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row.space {
+    justify-content: space-between;
+}
+
+.padSides {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column.sz-1 {
+    flex: 1;
+}
+
+
+/* summary class for summary */
+.summary {
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* icon button */
+.iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+}
