@@ -7,7 +7,7 @@
 - [ ] Certification
 - [x] HTML Resume
 - [x] CSS
-- [ ] Static Website with Terraform
+- [x] Azure Storage static website with Terraform
 - [ ] HTTPS with Azure CDN 
 - [ ] DNS with Azure DNS
 - [ ] JS 
