@@ -9,7 +9,7 @@
 - [x] CSS
 - [x] Azure Storage static website with Terraform
 - [x] HTTPS with Azure CDN 
-- [ ] DNS with Azure DNS
+- [x] DNS with Azure DNS
 - [ ] JS 
 - [ ] Database
 - [ ] Python
