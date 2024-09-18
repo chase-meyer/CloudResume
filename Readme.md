@@ -8,7 +8,7 @@
 - [x] HTML Resume
 - [x] CSS
 - [x] Azure Storage static website with Terraform
-- [ ] HTTPS with Azure CDN 
+- [x] HTTPS with Azure CDN 
 - [ ] DNS with Azure DNS
 - [ ] JS 
 - [ ] Database

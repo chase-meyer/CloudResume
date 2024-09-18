@@ -54,7 +54,7 @@ resource "azurerm_cdn_profile" "prod" {
   name                = "resume-cdn-profile"
   location            = azurerm_resource_group.prod.location
   resource_group_name = azurerm_resource_group.prod.name
-  sku                 = "Standard_Verizon"
+  sku                 = "Standard_Microsoft"
 }
 
 resource "azurerm_cdn_endpoint" "prod" {
@@ -63,10 +63,13 @@ resource "azurerm_cdn_endpoint" "prod" {
   location            = azurerm_resource_group.prod.location
   resource_group_name = azurerm_resource_group.prod.name
 
+
   origin {
     name      = "prod"
     host_name = azurerm_storage_account.prod.primary_web_host
   }
+
+  origin_host_header = azurerm_storage_account.prod.primary_web_host
 }
 
 resource "azurerm_dns_zone" "prod" {
@@ -86,5 +89,5 @@ resource "azurerm_cdn_endpoint_custom_domain" "prod" {
   name            = "resume-domain"
   cdn_endpoint_id = azurerm_cdn_endpoint.prod.id
   host_name       = "${azurerm_dns_cname_record.prod.name}.${resource.azurerm_dns_zone.prod.name}"
-  cdn_managed_https
+
 }
