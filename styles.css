@@ -87,3 +87,27 @@ hr {
     cursor: pointer;
     height: 24px;
 }
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 1in;
+    }
+
+    /* Ensure the pageContainer takes up all available space for printing */
+    .pageContainer {
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: 125%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .iconButton {
+        display: none;
+    }
+
+}
