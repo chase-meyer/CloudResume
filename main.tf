@@ -90,4 +90,9 @@ resource "azurerm_cdn_endpoint_custom_domain" "prod" {
   cdn_endpoint_id = azurerm_cdn_endpoint.prod.id
   host_name       = "${azurerm_dns_cname_record.prod.name}.${resource.azurerm_dns_zone.prod.name}"
 
+  cdn_managed_https {
+    certificate_type = "Dedicated"
+    protocol_type    = "ServerNameIndication"
+    tls_version      = "TLS12"
+  }
 }
