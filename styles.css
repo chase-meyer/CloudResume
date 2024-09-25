@@ -27,11 +27,12 @@ p {
 
 
 /* Simulate a 9 x 11 inch page on screen */
+/* Base styles for .pageContainer */
 .pageContainer {
-    width: 9in;
-    height: 11in;
+    height: 70em;
+    width: 40em;
     margin: auto;
-    padding: 1in;
+    padding: 5em;
     border: 1px solid #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -39,6 +40,7 @@ p {
     display: flex;
     flex-direction: column;
 }
+
 
 hr {
     border-style: none;
