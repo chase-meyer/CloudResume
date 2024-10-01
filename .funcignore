@@ -44,3 +44,17 @@ terraform.rc
 
 #vscode
 .vscode/
+
+#tests
+tests/
+
+#terraform
+main.tf
+variables.tf
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+
+#resume
+resume/
+
