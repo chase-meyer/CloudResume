@@ -11,5 +11,20 @@
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[4.*, 5.0.0)"
+  },
+  "extensions": {
+    "http": {
+      "routePrefix": "resume-functions",
+      "maxOutstandingRequests": 200,
+      "maxConcurrentRequests": 100,
+      "dynamicThrottlesEnabled": true,
+      "hsts": {
+        "isEnabled": true,
+        "maxAge": "10"
+      },
+      "customHeaders": {
+        "X-Content-Type-Options": "nosniff"
+      }
+    }
   }
 }
