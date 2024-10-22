@@ -10,8 +10,8 @@
 - [x] Azure Storage static website with Terraform
 - [x] HTTPS with Azure CDN 
 - [x] DNS with Azure DNS
-- [ ] JS 
-- [ ] Database
+- [x] JS 
+- [x] Database
 - [ ] Python
 - [ ] Test
 - [ ] Infrastructure as Code 
