@@ -13,6 +13,21 @@ terraform {
 # Using environmental variables
 variable "storage_acct" {}
 
+variable "cosmos_db_endpoint" {
+  description = "The endpoint URI of the Cosmos DB account"
+  type        = string
+}
+
+variable "cosmos_db_key" {
+  description = "The primary key of the Cosmos DB account"
+  type        = string
+}
+
+variable "api_key" {
+  description = "The API key for the Function App"
+  type        = string
+}
+
 provider "azurerm" {
   features {
     resource_group {
@@ -177,6 +192,9 @@ resource "azurerm_linux_function_app" "this" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = "${azurerm_application_insights.this.instrumentation_key}"
+    "COSMOS_DB_ENDPOINT"             = var.cosmos_db_endpoint
+    "COSMOS_DB_KEY"                  = var.cosmos_db_key
+    "API_KEY"                        = var.api_key
   }
 }
 

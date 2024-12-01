@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', async (event) => {
     const printButton = document.getElementById('printButton');
     printButton.addEventListener('click', function () {
         window.print();
     });
-    console.log('add a visit to the visit log')
+    console.log('add a visit to the visit log');
 
     // Function to get geolocation
     function getGeolocation() {
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         };
 
         // Get geolocation
-        /*
         try {
             const position = await getGeolocation();
             visitorInfo.geolocation = {
@@ -46,9 +45,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } catch (error) {
             console.error('Error getting geolocation:', error);
         }
-        */
 
         return visitorInfo;
+    }
+
+    // Function to send visitor information to Azure Function
+    async function sendVisitorInfo(visitorInfo) {
+        try {
+            const response = await fetch('https://<your-function-app-name>.azurewebsites.net/api/logVisitorInfo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(visitorInfo)
+            });
+            if (response.ok) {
+                console.log('Visitor information stored successfully.');
+            } else {
+                console.error('Error storing visitor information:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error sending visitor information:', error);
+        }
     }
 
     // Check for user consent
@@ -61,7 +79,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     modal.style.display = 'block';
     pageContainer.classList.add('blur');
 
-
     span.onclick = function () {
         modal.style.display = 'none';
     }
@@ -70,6 +87,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.style.display = 'none';
         // Log visitor information on page load
         const visitorInfo = await logVisitorInfo();
+
+        // Send visitor information to Azure Function
+        await sendVisitorInfo(visitorInfo);
 
         // Example: Log visitor information when a button is clicked
         console.log(visitorInfo);

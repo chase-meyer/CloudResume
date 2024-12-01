@@ -90,6 +90,10 @@ hr {
     height: 24px;
 }
 
+.contactInfo {
+    display: none;
+}
+
 @media print {
     @page {
         size: A4 portrait;
@@ -110,6 +114,11 @@ hr {
 
     .iconButton {
         display: none;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
     }
 
 }
