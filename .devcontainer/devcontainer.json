@@ -1,0 +1,68 @@
+{
+    "name": "AZ-204 Python Dev Environment",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/powershell:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.vscode-python",
+                "ms-azuretools.vscode-azureappservice",
+                "ms-azuretools.vscode-azureresourcegroups",
+                "vscodevim.vim",
+                "andenetalexander.vim-cheatsheet",
+                "ms-vscode.powershell",
+                "esbenp.prettier-vscode",
+                "github.copilot",
+                "hyzeta.vscode-theme-github-light",
+                "ms-azuretools.vscode-azurefunctions",
+                "ms-azuretools.vscode-cosmosdb",
+                "ms-azuretools.vscode-azurearmtools",
+                "ms-azuretools.vscode-azureextensionpack"
+            ],
+            "settings": {
+                "workbench.colorTheme": "Github Light Theme - Gray",
+                "terminal.integrated.defaultProfile.linux": "pwsh",
+                "terminal.integrated.profiles.linux": {
+                    "pwsh": {
+                        "path": "/usr/local/bin/pwsh",
+                        "args": []
+                    }
+                },
+                "editor.fontSize": 14,
+                "terminal.integrated.fontSize": 14,
+                "vim.useSystemClipboard": true,
+                "vim.normalModeKeyBindingsNonRecursive": [
+                    {
+                        "before": [":"],
+                        "commands": ["workbench.action.showCommands"]
+                    }
+                ],
+                "editor.formatOnSave": true,
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true
+            }
+        }
+    },
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+    "settings": {
+        "workbench.colorTheme": "Sage Light"
+    },
+    "extensions": [
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-cosmosdb",
+        "ms-azuretools.vscode-azurearmtools",
+        "ms-azuretools.vscode-azureextensionpack"
+    ],
+    "portsAttributes": {
+        "8080": {
+            "label": "Web App",
+            "onAutoForward": "notify"
+        }
+    },
+    "remoteUser": "vscode"
+}
