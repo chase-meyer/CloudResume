@@ -22,7 +22,8 @@
                 "ms-azuretools.vscode-azurefunctions",
                 "ms-azuretools.vscode-cosmosdb",
                 "ms-azuretools.vscode-azurearmtools",
-                "ms-azuretools.vscode-azureextensionpack"
+                "ms-azuretools.vscode-azureextensionpack",
+                "ms-azuretools.vscode-bicep"
             ],
             "settings": {
                 "workbench.colorTheme": "Github Light Theme - Gray",
