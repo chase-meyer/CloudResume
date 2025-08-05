@@ -2,11 +2,12 @@ param dnsZoneName string
 
 resource dnsZone 'Microsoft.Network/dnsZones@2018-05-01' = {
   name: dnsZoneName
+  location: 'global'
 }
 
 resource resumeCname 'Microsoft.Network/dnsZones/CNAME@2018-05-01' = {
+  parent: dnsZone
   name: 'resume'
-  zoneName: dnsZone.name
   properties: {
     TTL: 3600
     CNAMERecord: {
@@ -16,8 +17,8 @@ resource resumeCname 'Microsoft.Network/dnsZones/CNAME@2018-05-01' = {
 }
 
 resource functionCname 'Microsoft.Network/dnsZones/CNAME@2018-05-01' = {
+  parent: dnsZone
   name: 'resume-functions'
-  zoneName: dnsZone.name
   properties: {
     TTL: 3600
     CNAMERecord: {
@@ -27,8 +28,8 @@ resource functionCname 'Microsoft.Network/dnsZones/CNAME@2018-05-01' = {
 }
 
 resource functionTxt 'Microsoft.Network/dnsZones/TXT@2018-05-01' = {
+  parent: dnsZone
   name: 'asuid.resume-functions'
-  zoneName: dnsZone.name
   properties: {
     TTL: 3600
     TXTRecords: [
